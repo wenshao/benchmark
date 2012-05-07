@@ -1,11 +1,11 @@
 package com.alibaba.study.benchmark.xcase;
 
-public class ThrowException extends BenchmarkCaseAdapter {
+public class ThrowNewException extends BenchmarkCaseAdapter {
 	private Exception exception;
 	private int index;
 
-	public ThrowException() {
-		super("Exception.throw-catch");
+	public ThrowNewException() {
+		super("Exception.new-throw-catch");
 	}
 
 	public void execute() {

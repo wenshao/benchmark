@@ -41,8 +41,8 @@ public class ReflectInvoke extends BenchmarkCaseAdapter {
 	public static class X {
 		private int value;
 
-		public void f() {
-			value++;
+		public int f() {
+			return value++;
 		}
 
 		public int getValue() {

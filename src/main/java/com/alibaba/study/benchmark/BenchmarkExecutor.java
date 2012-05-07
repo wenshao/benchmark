@@ -19,12 +19,12 @@ import com.alibaba.study.benchmark.xcase.ReflectNew;
 import com.alibaba.study.benchmark.xcase.SystemCurrentMillis;
 import com.alibaba.study.benchmark.xcase.SystemNano;
 import com.alibaba.study.benchmark.xcase.ThreadGetStackTrace;
-import com.alibaba.study.benchmark.xcase.ThrowException;
+import com.alibaba.study.benchmark.xcase.ThrowNewException;
 
 public class BenchmarkExecutor {
 	private List<BenchmarkCase> caseList = new ArrayList<BenchmarkCase>();
 
-	private int loopCount = 5;
+	private int loopCount = 10;
 
 	private int executeCount = 1000 * 1000;
 
@@ -89,7 +89,7 @@ public class BenchmarkExecutor {
 		executor.getCaseList().add(new ReflectNew());
 		executor.getCaseList().add(new ReflectInvoke());
 		executor.getCaseList().add(new ReflectGetField());
-		executor.getCaseList().add(new ThrowException());
+		executor.getCaseList().add(new ThrowNewException());
 		executor.getCaseList().add(new ExceptionNew());
 		executor.getCaseList().add(new ExceptionNewGetStackTrace());
 		executor.getCaseList().add(new ThreadGetStackTrace());
