@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.alibaba.study.benchmark.xcase.AtomicIntegerIncrement;
 import com.alibaba.study.benchmark.xcase.AtomicLongIncrement;
+import com.alibaba.study.benchmark.xcase.AtomicLongX10Increment;
 import com.alibaba.study.benchmark.xcase.ExceptionNew;
 import com.alibaba.study.benchmark.xcase.ExceptionNewGetStackTrace;
 import com.alibaba.study.benchmark.xcase.HashMap_String_Get;
@@ -16,6 +17,7 @@ import com.alibaba.study.benchmark.xcase.LockTryLock;
 import com.alibaba.study.benchmark.xcase.LockTryLockWithTime;
 import com.alibaba.study.benchmark.xcase.LongIncrement;
 import com.alibaba.study.benchmark.xcase.LongVolatileIncrement;
+import com.alibaba.study.benchmark.xcase.LongVolatileX10Increment;
 import com.alibaba.study.benchmark.xcase.ReflectGetField;
 import com.alibaba.study.benchmark.xcase.ReflectInvoke;
 import com.alibaba.study.benchmark.xcase.ReflectNew;
@@ -84,10 +86,12 @@ public class BenchmarkExecutor {
 		BenchmarkExecutor executor = new BenchmarkExecutor();
 		executor.getCaseList().add(new AtomicIntegerIncrement());
 		executor.getCaseList().add(new AtomicLongIncrement());
+		executor.getCaseList().add(new AtomicLongX10Increment());
 		executor.getCaseList().add(new IntIncrement());
 		executor.getCaseList().add(new LongIncrement());
 		executor.getCaseList().add(new IntVolatileIncrement());
 		executor.getCaseList().add(new LongVolatileIncrement());
+		executor.getCaseList().add(new LongVolatileX10Increment());
 		executor.getCaseList().add(new SystemCurrentMillis());
 		executor.getCaseList().add(new SystemNano());
 		executor.getCaseList().add(new LockLockFair());
