@@ -1,8 +1,8 @@
 package com.alibaba.study.benchmark.xcase;
 
-
 public class ThrowException extends BenchmarkCaseAdapter {
-	private int value;
+	private Exception exception;
+	private int index;
 
 	public ThrowException() {
 		super("Exception.throw-catch");
@@ -10,22 +10,37 @@ public class ThrowException extends BenchmarkCaseAdapter {
 
 	public void execute() {
 		try {
-			f();
+			int v = index++ % 3;
+			if (v == 0) {
+				f();
+			} else if (v == 1) {
+				f1();
+			} else {
+				f2();
+			}
 		} catch (Exception ex) {
-			// skip
+			exception = ex;
 		}
 	}
-	
+
 	public void f() throws Exception {
 		throw new RuntimeException();
 	}
 
-	public int getValue() {
-		return value;
+	public void f1() throws Exception {
+		throw new RuntimeException();
 	}
 
-	public void setValue(int value) {
-		this.value = value;
+	public void f2() throws Exception {
+		throw new RuntimeException();
+	}
+
+	public Exception getException() {
+		return exception;
+	}
+
+	public void setException(Exception exception) {
+		this.exception = exception;
 	}
 
 }

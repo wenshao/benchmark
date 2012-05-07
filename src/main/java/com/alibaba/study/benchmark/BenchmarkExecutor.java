@@ -5,20 +5,25 @@ import java.util.List;
 
 import com.alibaba.study.benchmark.xcase.AtomicIntegerIncrement;
 import com.alibaba.study.benchmark.xcase.AtomicLongIncrement;
+import com.alibaba.study.benchmark.xcase.ExceptionNew;
+import com.alibaba.study.benchmark.xcase.ExceptionNewGetStackTrace;
 import com.alibaba.study.benchmark.xcase.HashMap_String_Get;
 import com.alibaba.study.benchmark.xcase.IntIncrement;
 import com.alibaba.study.benchmark.xcase.IntVolatileIncrement;
 import com.alibaba.study.benchmark.xcase.LockLockFair;
 import com.alibaba.study.benchmark.xcase.LockLockUnfair;
 import com.alibaba.study.benchmark.xcase.LongIncrement;
+import com.alibaba.study.benchmark.xcase.ReflectInvoke;
+import com.alibaba.study.benchmark.xcase.ReflectNew;
 import com.alibaba.study.benchmark.xcase.SystemCurrentMillis;
 import com.alibaba.study.benchmark.xcase.SystemNano;
+import com.alibaba.study.benchmark.xcase.ThreadGetStackTrace;
 import com.alibaba.study.benchmark.xcase.ThrowException;
 
 public class BenchmarkExecutor {
 	private List<BenchmarkCase> caseList = new ArrayList<BenchmarkCase>();
 
-	private int loopCount = 10;
+	private int loopCount = 5;
 
 	private int executeCount = 1000 * 1000;
 
@@ -80,7 +85,12 @@ public class BenchmarkExecutor {
 		executor.getCaseList().add(new LockLockFair());
 		executor.getCaseList().add(new LockLockUnfair());
 		executor.getCaseList().add(new HashMap_String_Get());
+		executor.getCaseList().add(new ReflectNew());
+		executor.getCaseList().add(new ReflectInvoke());
 		executor.getCaseList().add(new ThrowException());
+		executor.getCaseList().add(new ExceptionNew());
+		executor.getCaseList().add(new ExceptionNewGetStackTrace());
+		executor.getCaseList().add(new ThreadGetStackTrace());
 
 		executor.execute();
 	}
