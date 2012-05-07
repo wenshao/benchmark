@@ -15,6 +15,7 @@ import com.alibaba.study.benchmark.xcase.LockLockUnfair;
 import com.alibaba.study.benchmark.xcase.LockTryLock;
 import com.alibaba.study.benchmark.xcase.LockTryLockWithTime;
 import com.alibaba.study.benchmark.xcase.LongIncrement;
+import com.alibaba.study.benchmark.xcase.LongVolatileIncrement;
 import com.alibaba.study.benchmark.xcase.ReflectGetField;
 import com.alibaba.study.benchmark.xcase.ReflectInvoke;
 import com.alibaba.study.benchmark.xcase.ReflectNew;
@@ -86,6 +87,7 @@ public class BenchmarkExecutor {
 		executor.getCaseList().add(new IntIncrement());
 		executor.getCaseList().add(new LongIncrement());
 		executor.getCaseList().add(new IntVolatileIncrement());
+		executor.getCaseList().add(new LongVolatileIncrement());
 		executor.getCaseList().add(new SystemCurrentMillis());
 		executor.getCaseList().add(new SystemNano());
 		executor.getCaseList().add(new LockLockFair());
