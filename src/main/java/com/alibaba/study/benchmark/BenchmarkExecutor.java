@@ -19,10 +19,7 @@ import com.alibaba.study.benchmark.xcase.ReflectNew;
 import com.alibaba.study.benchmark.xcase.SystemCurrentMillis;
 import com.alibaba.study.benchmark.xcase.SystemNano;
 import com.alibaba.study.benchmark.xcase.ThreadGetStackTrace;
-<<<<<<< HEAD
 import com.alibaba.study.benchmark.xcase.ThrowException;
-=======
->>>>>>> branch 'master' of https://wenshao@github.com/wenshao/benchmark.git
 import com.alibaba.study.benchmark.xcase.ThrowNewException;
 
 public class BenchmarkExecutor {
