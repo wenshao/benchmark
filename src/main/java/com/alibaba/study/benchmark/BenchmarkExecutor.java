@@ -24,6 +24,7 @@ import com.alibaba.study.benchmark.xcase.SystemNano;
 import com.alibaba.study.benchmark.xcase.ThreadGetStackTrace;
 import com.alibaba.study.benchmark.xcase.ThrowException;
 import com.alibaba.study.benchmark.xcase.ThrowNewException;
+import com.alibaba.study.benchmark.xcase.ThrowNewExceptionNoneStackTrace;
 
 public class BenchmarkExecutor {
 	private List<BenchmarkCase> caseList = new ArrayList<BenchmarkCase>();
@@ -98,6 +99,7 @@ public class BenchmarkExecutor {
 		executor.getCaseList().add(new ReflectGetField());
 		executor.getCaseList().add(new ThrowException());
 		executor.getCaseList().add(new ThrowNewException());
+		executor.getCaseList().add(new ThrowNewExceptionNoneStackTrace());
 		executor.getCaseList().add(new ExceptionNew());
 		executor.getCaseList().add(new ExceptionNewGetStackTrace());
 		executor.getCaseList().add(new ThreadGetStackTrace());
