@@ -1,9 +1,9 @@
 package com.alibaba.study.benchmark;
 
 public interface BenchmarkCase {
-	void init();
+	void init() throws Exception;
 
 	String getName();
 
-	void execute();
+	void execute() throws Exception;
 }

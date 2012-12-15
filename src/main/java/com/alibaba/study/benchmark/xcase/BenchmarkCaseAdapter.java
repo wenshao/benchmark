@@ -13,11 +13,11 @@ public abstract class BenchmarkCaseAdapter implements BenchmarkCase {
 		return name;
 	}
 
-	public void init() {
+	public void init() throws Exception {
 		
 	}
 
-	public void execute() {
+	public void execute() throws Exception {
 		
 	}
 
