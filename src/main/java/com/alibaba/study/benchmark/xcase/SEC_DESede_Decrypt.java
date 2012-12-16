@@ -6,13 +6,13 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
-public class AES_Decrypt extends BenchmarkCaseAdapter {
+public class SEC_DESede_Decrypt extends BenchmarkCaseAdapter {
 	private Cipher cipher;
 	private byte[] plainBytes;
 	private byte[] cipherBytes;
 
-	public AES_Decrypt() {
-		super("AES-Decrypt");
+	public SEC_DESede_Decrypt() {
+		super("DESede-Decrypt");
 	}
 
 	public void init() throws Exception {
@@ -21,8 +21,8 @@ public class AES_Decrypt extends BenchmarkCaseAdapter {
 		SecureRandom random = new SecureRandom();
 		random.nextBytes(plainBytes);
 
-		KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-		keyGen.init(192);
+		KeyGenerator keyGen = KeyGenerator.getInstance("DESede");
+		keyGen.init(168);
 		SecretKey secretKey = keyGen.generateKey();
 
 		{

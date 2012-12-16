@@ -2,20 +2,17 @@ package com.alibaba.study.benchmark.xcase;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
-import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
-import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
 import javax.crypto.Cipher;
 
-public class RSA_Decrypt extends BenchmarkCaseAdapter {
+public class SEC_RSA_Encrypt extends BenchmarkCaseAdapter {
 	private Cipher cipher;
 	private byte[] plainBytes;
-	private byte[] cipherBytes;
 
-	public RSA_Decrypt() {
+	public SEC_RSA_Encrypt() {
 		super("RSA-Encrypt");
 	}
 
@@ -26,22 +23,17 @@ public class RSA_Decrypt extends BenchmarkCaseAdapter {
 		random.nextBytes(plainBytes);
 
 		KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA");
-		keyPairGen.initialize(512);
+		keyPairGen.initialize(6144);
 		KeyPair keyPair = keyPairGen.generateKeyPair();
 		PublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-		PrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+//		PrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
 
-		{
-			Cipher cipher = Cipher.getInstance(publicKey.getAlgorithm());
-			cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-			cipherBytes = cipher.doFinal(plainBytes);
-		}
-		
-		cipher = Cipher.getInstance(privateKey.getAlgorithm());
-		cipher.init(Cipher.DECRYPT_MODE, privateKey);
+		cipher = Cipher.getInstance(publicKey.getAlgorithm());
+		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
 	}
+	// 
 
 	public void execute() throws Exception {
-		cipher.doFinal(cipherBytes);
+		cipher.doFinal(plainBytes);
 	}
 }

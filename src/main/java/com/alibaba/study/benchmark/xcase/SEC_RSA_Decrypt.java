@@ -9,13 +9,13 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
 import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
 
-public class RSA_Encrypt extends BenchmarkCaseAdapter {
+public class SEC_RSA_Decrypt extends BenchmarkCaseAdapter {
 	private Cipher cipher;
 	private byte[] plainBytes;
+	private byte[] cipherBytes;
 
-	public RSA_Encrypt() {
+	public SEC_RSA_Decrypt() {
 		super("RSA-Encrypt");
 	}
 
@@ -29,13 +29,19 @@ public class RSA_Encrypt extends BenchmarkCaseAdapter {
 		keyPairGen.initialize(2048);
 		KeyPair keyPair = keyPairGen.generateKeyPair();
 		PublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-//		PrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+		PrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
 
-		cipher = Cipher.getInstance(publicKey.getAlgorithm());
-		cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+		{
+			Cipher cipher = Cipher.getInstance(publicKey.getAlgorithm());
+			cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+			cipherBytes = cipher.doFinal(plainBytes);
+		}
+		
+		cipher = Cipher.getInstance(privateKey.getAlgorithm());
+		cipher.init(Cipher.DECRYPT_MODE, privateKey);
 	}
 
 	public void execute() throws Exception {
-		cipher.doFinal(plainBytes);
+		cipher.doFinal(cipherBytes);
 	}
 }

@@ -91,9 +91,17 @@ public class BenchmarkExecutor {
 //		executor.getCaseList().add(new AES_Encrypt());
 //		executor.getCaseList().add(new AES_Decrypt());
 //		executor.getCaseList().add(new MD5());
-//		executor.getCaseList().add(new RSA_Encrypt());
-		executor.getCaseList().add(new RSA_Decrypt());
-
+//		executor.getCaseList().add(new SEC_RSA_Encrypt());
+//		executor.getCaseList().add(new SEC_RSA_Decrypt());
+//		executor.getCaseList().add(new DES_Decrypt());
+//		executor.getCaseList().add(new SEC_DES_Encrypt());
+//		executor.getCaseList().add(new SEC_DESede_Encrypt());
+//		executor.getCaseList().add(new SEC_DESede_Decrypt());
+//		executor.getCaseList().add(new SEC_Blowfish_Encrypt());
+//		executor.getCaseList().add(new SEC_Blowfish_Decrypt());
+//		executor.getCaseList().add(new SEC_RC2_Encrypt());
+		executor.getCaseList().add(new SEC_RC2_Decrypt());
+		
 		executor.execute();
 	}
 }

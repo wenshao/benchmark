@@ -6,30 +6,37 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
-public class AES_Encrypt extends BenchmarkCaseAdapter {
+public class SEC_DES_Decrypt extends BenchmarkCaseAdapter {
 	private Cipher cipher;
 	private byte[] plainBytes;
+	private byte[] cipherBytes;
 
-	public AES_Encrypt() {
-		super("AES-Encrypt");
+	public SEC_DES_Decrypt() {
+		super("DES-Decrypt");
 	}
 
 	public void init() throws Exception {
 		plainBytes = new byte[1024 * 1]; // 4k
-		
+
 		SecureRandom random = new SecureRandom();
 		random.nextBytes(plainBytes);
-		
-		KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-		keyGen.init(256);
+
+		KeyGenerator keyGen = KeyGenerator.getInstance("DES");
+		keyGen.init(56);
 		SecretKey secretKey = keyGen.generateKey();
-		byte[] keyBytes = secretKey.getEncoded();
+
+		{
+			Cipher cipher = Cipher.getInstance(secretKey.getAlgorithm());
+			cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+			cipherBytes = cipher.doFinal(plainBytes);
+		}
 		
 		cipher = Cipher.getInstance(secretKey.getAlgorithm());
-		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+		cipher.init(Cipher.DECRYPT_MODE, secretKey);
 	}
 
 	public void execute() throws Exception {
-		cipher.doFinal(plainBytes);
+		cipher.doFinal(cipherBytes);
 	}
+
 }
