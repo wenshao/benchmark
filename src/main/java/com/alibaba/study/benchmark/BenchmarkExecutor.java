@@ -10,7 +10,7 @@ public class BenchmarkExecutor {
 
 	private int loopCount = 3;
 
-	private int executeCount = 1000 * 1000;
+	private int executeCount = 1000 * 1;
 
 	public List<BenchmarkCase> getCaseList() {
 		return caseList;
@@ -100,7 +100,17 @@ public class BenchmarkExecutor {
 //		executor.getCaseList().add(new SEC_Blowfish_Encrypt());
 //		executor.getCaseList().add(new SEC_Blowfish_Decrypt());
 //		executor.getCaseList().add(new SEC_RC2_Encrypt());
-		executor.getCaseList().add(new SEC_RC2_Decrypt());
+//		executor.getCaseList().add(new SEC_RC2_Decrypt());
+//		executor.getCaseList().add(new SEC_RSA_KeyGen());
+//		executor.getCaseList().add(new SEC_EC_Encrypt());
+//		executor.getCaseList().add(new SEC_MD2());
+//		executor.getCaseList().add(new SEC_RSA_Sign());
+//		executor.getCaseList().add(new SEC_RSA_Verify());
+//		executor.getCaseList().add(new SEC_EC_Sign());
+		executor.getCaseList().add(new SEC_EC_Verify());
+		
+		//SEC_EC_Sign
+		//SEC_RSA_Verify
 		
 		executor.execute();
 	}
