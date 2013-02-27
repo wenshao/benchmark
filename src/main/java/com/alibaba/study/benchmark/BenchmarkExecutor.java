@@ -8,9 +8,9 @@ import com.alibaba.study.benchmark.xcase.*;
 public class BenchmarkExecutor {
 	private List<BenchmarkCase> caseList = new ArrayList<BenchmarkCase>();
 
-	private int loopCount = 3;
+	private int loopCount = 20;
 
-	private int executeCount = 1000 * 1;
+	private int executeCount = 1000 * 1000 * 1;
 
 	public List<BenchmarkCase> getCaseList() {
 		return caseList;
@@ -82,6 +82,11 @@ public class BenchmarkExecutor {
 //		executor.getCaseList().add(new ReflectNew());
 //		executor.getCaseList().add(new ReflectInvoke());
 //		executor.getCaseList().add(new ReflectGetField());
+//		executor.getCaseList().add(new ReflectGetField2());
+//		executor.getCaseList().add(new ReflectGetMethod());
+//		executor.getCaseList().add(new ReflectGetConstructor());
+//		executor.getCaseList().add(new ReflectClassForName());
+//		executor.getCaseList().add(new ReflectConstructorNew());
 //		executor.getCaseList().add(new ThrowException());
 //		executor.getCaseList().add(new ThrowNewException());
 //		executor.getCaseList().add(new ThrowNewExceptionNoneStackTrace());
@@ -107,7 +112,26 @@ public class BenchmarkExecutor {
 //		executor.getCaseList().add(new SEC_RSA_Sign());
 //		executor.getCaseList().add(new SEC_RSA_Verify());
 //		executor.getCaseList().add(new SEC_EC_Sign());
-		executor.getCaseList().add(new SEC_EC_Verify());
+//		executor.getCaseList().add(new SEC_EC_Verify());
+		
+//		executor.getCaseList().add(new SEC_RANDOM_RandomUUID());
+//		executor.getCaseList().add(new SEC_RANDOM_SecRandom());
+//		executor.getCaseList().add(new SEC_RANDOM_Random());
+//		executor.getCaseList().add(new SEC_RANDOM_ThreadLocalRandom());
+		
+//		executor.getCaseList().add(new StringChatAt());
+//		executor.getCaseList().add(new StringtoCharArray());
+//		executor.getCaseList().add(new SystemIdentityHashCode());
+//		executor.getCaseList().add(new ArrayCopy());
+//		executor.getCaseList().add(new ArraySystemArrayCopy());
+//		executor.getCaseList().add(new CharArrayCopy());
+//		executor.getCaseList().add(new CharArraySystemArrayCopy());
+//		executor.getCaseList().add(new ObjectArrayCopy());
+		executor.getCaseList().add(new ObjectArraySystemArrayCopy());
+//		executor.getCaseList().add(new ObjectArrayCopyOf());
+		
+		//SystemIdentityHashCode
+		//StringtoCharArray
 		
 		//SEC_EC_Sign
 		//SEC_RSA_Verify

@@ -3,7 +3,8 @@ package com.alibaba.study.benchmark.xcase;
 public class ThrowException extends BenchmarkCaseAdapter {
 	private Exception exception = new Exception();
 	private int index;
-
+	private Exception error;
+	
 	public ThrowException() {
 		super("Exception.throw-catch");
 	}
@@ -19,7 +20,7 @@ public class ThrowException extends BenchmarkCaseAdapter {
 				f2();
 			}
 		} catch (Exception ex) {
-			exception = ex;
+			error = ex;
 		}
 	}
 
